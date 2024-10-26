@@ -11,13 +11,11 @@ export const Home = () => {
 	const {store, actions} = useContext(Context)
 	return (
 		<div className="text-center mt-5">
-
+           <div>
 			<Card />
-			<Info />
-			<Change />
-			{store.contacts.map ((value) => {
-				return <h4> {value.name} </h4>
-			})}
+			</div>
+		
+			
 			
 			<Link to="/nuevo-contacto">
             <button className="btn btn-success">Agregar Contacto </button>
