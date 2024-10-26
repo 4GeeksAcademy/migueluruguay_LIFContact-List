@@ -8,18 +8,19 @@ import Change from "../component/Change";
 
 
 export const Home = () => {
-	const {store, actions} = useContext(Context)
+	const { store, actions } = useContext(Context)
 	return (
 		<div className="text-center mt-5">
-           <div>
-			<Card />
+			<div className="position-relative m-2 p-3">
+					<Link to="/nuevo-contacto">
+						<button className="btn btn-success position-absolute top-0 end-1">Agregar Contacto </button>
+					</Link>
+				</div>
+			<div>
+				<Card />
+				
 			</div>
-		
-			
-			
-			<Link to="/nuevo-contacto">
-            <button className="btn btn-success">Agregar Contacto </button>
-            </Link>
+
 
 		</div>
 	);

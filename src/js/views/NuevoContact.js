@@ -55,12 +55,14 @@ const NuevoContact = () => {
         name="address" value={store.contact.address} 
       onChange={(e)=> actions.updateContactField("address", e.target.value)} />
       </div>
+      <div class="d-grid gap-2 p-1">
       <button className='btn btn-primary' onClick={handleCreateContact}
         /*Hace un post con la información del contacto*/
         //Para que me envíe al componente home, No puedo susar Link, porque me cancel Onclick
         //El navigate para este caso debería usarse en el primero o segundo .then ()
 
       >Crear Contacto</button>
+      </div>
     </div>
 
   );
