@@ -52,7 +52,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			changeInfo: (text) => {
 				setStore({ info: text })
 			},
-			//Función y Método para obener los contactos que ya he creado.
+			//Función y Método para obtener los contactos que ya he creado.
 			getContacts: () => {
 				fetch('https://playground.4geeks.com/contact/agendas/Campeones1950')
 					.then((response) => response.json())
@@ -108,26 +108,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 			deleteContact: (contactId) => {
 				const store = getStore();
 
-				fetch (`https://playground.4geeks.com/contact/agendas/Campeones1950/contacts/${contactId}`, {
-					method:"DELETE",
+				fetch(`https://playground.4geeks.com/contact/agendas/Campeones1950/contacts/${contactId}`, {
+					method: "DELETE",
 				})
 					.then((response) => {
-						if(!response.ok) {
+						if (!response.ok) {
 							console.error("Error al eliminar el contacto", response.status, response.statusText);
-												throw new Error ("Error al borrar contacto");
+							throw new Error("Error al borrar contacto");
 						}
 						return response;
 					})
-					.then (() => {
+					.then(() => {
 						const updatedContacts = store.contacts.filter(contact => contact.id !== contactId);
-                        setStore({ contacts: updatedContacts});
-						
-						console.log ("Contacto Eliminado con éxito");
+						setStore({ contacts: updatedContacts });
+
+						console.log("Contacto Eliminado con éxito");
 					})
 					.catch((error) => {
 						console.error("Error al elminiar el contacto:", error);
 					})
-				
+
 			},
 
 			//Editar Contacto
@@ -145,21 +145,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 							address: editContact.address
 						})
 					}
-					
-				)
-				.then((response) => {
-					if (!response.ok) throw new Error("Error al editar el nuevo contacto");
-					return response.json();
-				})
-				.then((data) => {
-					console.log("Contacto editado:", data);
-					getActions().getContacts();
 
-					navigate("/");
-				})
-				.catch((error) => {
-					console.error("Hay un error al editar el contacto:", error);
-				});
+				)
+					.then((response) => {
+						if (!response.ok) throw new Error("Error al editar el nuevo contacto");
+						return response.json();
+					})
+					.then((data) => {
+						console.log("Contacto editado:", data);
+						getActions().getContacts();
+
+						navigate("/");
+					})
+					.catch((error) => {
+						console.error("Hay un error al editar el contacto:", error);
+					});
 
 			}
 
