@@ -18,7 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			info: "Información en flux!",
 			contacts: [], //Lista de Contactos
 			contact: {
-				full_name: "",
+				name: "",
 				email: "",
 				phone: "",
 				address: ""
@@ -77,7 +77,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//Crear un nuevo contacto
 			addContact: (newContact, navigate) => {
-				fetch(' https://playground.4geeks.com/contact/agendas/Campeones1950/contacts', {
+				fetch('https://playground.4geeks.com/contact/agendas/Campeones1950/contacts', {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
